@@ -1,5 +1,6 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dave_group_project_1/responsive.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -18,7 +19,8 @@ class _HomeState extends State<Home> {
         child: Row(
           children: [
 
-            Expanded(
+            if(Responsive.isDesktop(context))
+              Expanded(
                 child: CarouselSlider(
                   options: CarouselOptions(
 
@@ -48,7 +50,7 @@ class _HomeState extends State<Home> {
 
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(100.0, 60.0, 100.0, 30.0),
+                  padding: Responsive.isMobile(context)? EdgeInsets.fromLTRB(30.0, 60.0, 30.0, 30.0): EdgeInsets.fromLTRB(100.0, 60.0, 100.0, 30.0),
                   child: Column(
 
                     crossAxisAlignment: CrossAxisAlignment.stretch,
